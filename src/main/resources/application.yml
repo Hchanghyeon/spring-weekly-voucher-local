@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    default: local
+file:
+  customer:
+    path: ./file/customer_blacklist.csv
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  sql:
+    init:
+      mode: always
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+file:
+  voucher:
+    path: ./file/voucher_list.csv
