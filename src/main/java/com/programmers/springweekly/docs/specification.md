@@ -238,3 +238,10 @@ blacklist
 - 예외 별 상태 코드 적용
 - 발생할 것 같은 예외들을 모두 잡고 예상치 못한 예외가 발생했을 때 프로그램이 꺼지지 않도록 제일 하위에 최상위 Exception으로 예외 처리
 
+### 웹 동작 화면
+
+![ezgif com-video-to-gif](https://github.com/Hchanghyeon/spring-weekly-voucher-local/assets/92444744/942953ed-5faa-4820-978e-60f9bf126eb3)
+
+
+
+
