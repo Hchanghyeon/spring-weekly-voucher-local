@@ -3,13 +3,18 @@ package com.programmers.springweekly.service.voucher;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import com.programmers.springweekly.domain.voucher.Voucher;
 import com.programmers.springweekly.domain.voucher.VoucherType;
 import com.programmers.springweekly.dto.voucher.request.VoucherCreateRequest;
 import com.programmers.springweekly.dto.voucher.request.VoucherUpdateRequest;
 import com.programmers.springweekly.dto.voucher.response.VoucherListResponse;
 import com.programmers.springweekly.dto.voucher.response.VoucherResponse;
 import com.programmers.springweekly.service.VoucherService;
+
+import java.util.List;
 import java.util.NoSuchElementException;
+
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -117,8 +122,7 @@ public class VoucherServiceTest {
         voucherService.deleteAll();
 
         // then
-        assertThatThrownBy(() -> voucherService.findAll())
-                .isInstanceOf(NoSuchElementException.class)
-                .hasMessage("바우처가 저장되어 있지 않습니다.");
+        VoucherListResponse voucherListResponse = voucherService.findAll();
+        Assertions.assertThat(voucherListResponse.getVoucherList().size()).isEqualTo(0);
     }
 }
